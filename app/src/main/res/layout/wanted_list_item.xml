@@ -1,0 +1,117 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="280dp"
+    android:layout_height="460dp"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    card_view:cardCornerRadius="10dp"
+    card_view:cardBackgroundColor="#FFFFEE"
+    card_view:cardElevation="5dp"
+    android:layout_gravity="center"
+    android:id="@+id/cvDebtor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/ivPhoto"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="5dp"
+            android:layout_weight="6"
+            android:src="@drawable/example_guy" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvN"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="Name:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#a4000000" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:text="Example Name"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#a4000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvM"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="Owes:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#a4000000" />
+
+            <TextView
+                android:id="@+id/tvMoney"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:text="10.00 pln"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#a4000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="2dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvP"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="Phone:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#a4000000" />
+
+            <TextView
+                android:id="@+id/tvPhone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="2"
+                android:text="661953019"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#a4000000" />
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>
