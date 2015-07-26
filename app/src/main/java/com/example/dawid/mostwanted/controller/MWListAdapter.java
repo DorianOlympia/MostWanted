@@ -15,6 +15,7 @@ import com.example.dawid.mostwanted.R;
 import com.example.dawid.mostwanted.model.ListItemChangedListener;
 import com.example.dawid.mostwanted.model.ListItemData;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -94,13 +95,6 @@ public class MWListAdapter extends RecyclerView.Adapter<MWListAdapter.MWViewHold
                 tvNum = (TextView) itemView.findViewById(R.id.tvPhone);
                 ivPhoto = (ImageView) itemView.findViewById(R.id.ivPhoto);
                 debtorView = (CardView) itemView.findViewById(R.id.cvDebtor);
-                debtorView.setOnLongClickListener(new View.OnLongClickListener() {
-                    @Override
-                    public boolean onLongClick(View v) {
-                        listener.onListItemRemove(getAdapterPosition());
-                        return true;
-                    }
-                });
             }
             else{
                 ivAddButton = (ImageButton)itemView.findViewById(R.id.ibAdd);
