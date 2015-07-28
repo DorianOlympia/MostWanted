@@ -2,6 +2,7 @@ package com.example.dawid.mostwanted.controller;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.dawid.mostwanted.R;
 import com.example.dawid.mostwanted.model.ListItemChangedListener;
@@ -22,6 +24,7 @@ import java.util.List;
  * Created by Dawid on 2015-07-22.
  */
 public class MWListAdapter extends RecyclerView.Adapter<MWListAdapter.MWViewHolder> {
+
     private List<ListItemData> data;
     private Context ctx;
     private LayoutInflater inflater;
@@ -60,7 +63,11 @@ public class MWListAdapter extends RecyclerView.Adapter<MWListAdapter.MWViewHold
             holder.setName(tmp.getName());
             holder.setTvNum(tmp.getTelephone());
             holder.setTvOwes(tmp.getOwes());
-            holder.setIvPhoto(tmp.getPhoto());
+
+            Bitmap tmpPhoto = tmp.getPhoto();
+            if(tmpPhoto == null)
+                tmpPhoto = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.no_pic);
+            holder.setIvPhoto(tmpPhoto);
         }
     }
 
@@ -102,6 +109,13 @@ public class MWListAdapter extends RecyclerView.Adapter<MWListAdapter.MWViewHold
                     @Override
                     public void onClick(View v) {
                         listener.onListItemAdd();
+                    }
+                });
+                ivAddButton.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View v) {
+                        listener.checkSize();
+                        return false;
                     }
                 });
             }

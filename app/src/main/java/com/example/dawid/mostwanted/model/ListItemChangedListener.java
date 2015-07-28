@@ -6,4 +6,5 @@ package com.example.dawid.mostwanted.model;
 public interface ListItemChangedListener {
     public void onListItemAdd();
     public void onListItemRemove(int layoutPosition);
+    void checkSize();
 }

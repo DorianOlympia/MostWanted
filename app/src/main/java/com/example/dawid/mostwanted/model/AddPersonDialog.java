@@ -32,7 +32,8 @@ import java.net.URI;
 public class AddPersonDialog extends DialogFragment implements View.OnClickListener {
 
     public interface AddPersonDialogListener{
-        void onAddPersonButtonClicked(Bitmap photo, String name, String owes, String phone);
+        void onAddPersonButtonClicked(File photo, String name, String owes, String phone);
+        String getNextName();
     }
 
     private AddPersonDialogListener listener;
@@ -64,7 +65,7 @@ public class AddPersonDialog extends DialogFragment implements View.OnClickListe
                 if(isPhotoMade){
                     image = ((BitmapDrawable)ibPhoto.getDrawable()).getBitmap();
                 }
-                listener.onAddPersonButtonClicked(image, etName.getText().toString(), etOwes.getText().toString(), etPhone.getText().toString());
+                listener.onAddPersonButtonClicked(file, etName.getText().toString(), etOwes.getText().toString(), etPhone.getText().toString());
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -85,7 +86,7 @@ public class AddPersonDialog extends DialogFragment implements View.OnClickListe
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "test.jpg");
+        file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), listener.getNextName());
         Uri tempUri = Uri.fromFile(file);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, tempUri);
         intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 1);
